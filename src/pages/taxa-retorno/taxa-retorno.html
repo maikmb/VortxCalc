@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar hideBackButton="false">
+    <ion-title text-center>Taxa de Retorno</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <div class="tax-main-contanier" [ngSwitch]="tipoCalculo" [hidden]="hiddeContent">
+
+      <p *ngSwitchCase="'taxa'">Taxa de Retorno Calculado - {{ taxaRetornoCalculada }} %</p>
+      <p *ngSwitchCase="'preco'">Preço (PU) Calculado - {{ puCalculado }} %</p>
+
+    </div>
+
+
+    <ion-list>
+      <ion-item *ngFor="let data of calculadoraData">
+        <h2>{{data.datevento}}</h2>
+        <p>Vlr. Nominal Juros: {{data.vnjuros}}</p>
+        <p>Vlr. Nominal Amort.: {{data.vnamort}}</p>
+        <p>Dias Úteis: {{data.diasuteis_ateevento}}</p>
+        <p>Fator Desc. TIR: {{data.fator_txdescparc}}</p>
+        <p>Valor Descontado: {{data.eventodescontado}}</p>
+      </ion-item>
+    </ion-list>
+</ion-content>

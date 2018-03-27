@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Auth">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="public_token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnCalculadoraPuDS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="public_token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="private_token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codatvbase" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datacompra" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TIRcompra" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datavencimento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PUcompra" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnCalculadoraPuDSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnCalculadoraPuDSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnCalculadoraPuDT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="public_token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="private_token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codatvbase" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datacompra" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TIRcompra" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datavencimento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PUcompra" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnCalculadoraPuDTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnCalculadoraPuDTResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AuthSoapIn">
+    <wsdl:part name="parameters" element="tns:Auth" />
+  </wsdl:message>
+  <wsdl:message name="AuthSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCalculadoraPuDSSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnCalculadoraPuDS" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCalculadoraPuDSSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnCalculadoraPuDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCalculadoraPuDTSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnCalculadoraPuDT" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCalculadoraPuDTSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnCalculadoraPuDTResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthHttpGetIn">
+    <wsdl:part name="public_token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCalculadoraPuDSHttpGetIn">
+    <wsdl:part name="public_token" type="s:string" />
+    <wsdl:part name="private_token" type="s:string" />
+    <wsdl:part name="codatvbase" type="s:string" />
+    <wsdl:part name="datacompra" type="s:string" />
+    <wsdl:part name="TIRcompra" type="s:string" />
+    <wsdl:part name="datavencimento" type="s:string" />
+    <wsdl:part name="PUcompra" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCalculadoraPuDSHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCalculadoraPuDTHttpGetIn">
+    <wsdl:part name="public_token" type="s:string" />
+    <wsdl:part name="private_token" type="s:string" />
+    <wsdl:part name="codatvbase" type="s:string" />
+    <wsdl:part name="datacompra" type="s:string" />
+    <wsdl:part name="TIRcompra" type="s:string" />
+    <wsdl:part name="datavencimento" type="s:string" />
+    <wsdl:part name="PUcompra" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCalculadoraPuDTHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="AuthHttpPostIn">
+    <wsdl:part name="public_token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCalculadoraPuDSHttpPostIn">
+    <wsdl:part name="public_token" type="s:string" />
+    <wsdl:part name="private_token" type="s:string" />
+    <wsdl:part name="codatvbase" type="s:string" />
+    <wsdl:part name="datacompra" type="s:string" />
+    <wsdl:part name="TIRcompra" type="s:string" />
+    <wsdl:part name="datavencimento" type="s:string" />
+    <wsdl:part name="PUcompra" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCalculadoraPuDSHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCalculadoraPuDTHttpPostIn">
+    <wsdl:part name="public_token" type="s:string" />
+    <wsdl:part name="private_token" type="s:string" />
+    <wsdl:part name="codatvbase" type="s:string" />
+    <wsdl:part name="datacompra" type="s:string" />
+    <wsdl:part name="TIRcompra" type="s:string" />
+    <wsdl:part name="datavencimento" type="s:string" />
+    <wsdl:part name="PUcompra" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCalculadoraPuDTHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:portType name="SmartBrainSoap">
+    <wsdl:operation name="Auth">
+      <wsdl:input message="tns:AuthSoapIn" />
+      <wsdl:output message="tns:AuthSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCalculadoraPuDS">
+      <wsdl:input message="tns:ReturnCalculadoraPuDSSoapIn" />
+      <wsdl:output message="tns:ReturnCalculadoraPuDSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCalculadoraPuDT">
+      <wsdl:input message="tns:ReturnCalculadoraPuDTSoapIn" />
+      <wsdl:output message="tns:ReturnCalculadoraPuDTSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SmartBrainHttpGet">
+    <wsdl:operation name="Auth">
+      <wsdl:input message="tns:AuthHttpGetIn" />
+      <wsdl:output message="tns:AuthHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCalculadoraPuDS">
+      <wsdl:input message="tns:ReturnCalculadoraPuDSHttpGetIn" />
+      <wsdl:output message="tns:ReturnCalculadoraPuDSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCalculadoraPuDT">
+      <wsdl:input message="tns:ReturnCalculadoraPuDTHttpGetIn" />
+      <wsdl:output message="tns:ReturnCalculadoraPuDTHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SmartBrainHttpPost">
+    <wsdl:operation name="Auth">
+      <wsdl:input message="tns:AuthHttpPostIn" />
+      <wsdl:output message="tns:AuthHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCalculadoraPuDS">
+      <wsdl:input message="tns:ReturnCalculadoraPuDSHttpPostIn" />
+      <wsdl:output message="tns:ReturnCalculadoraPuDSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCalculadoraPuDT">
+      <wsdl:input message="tns:ReturnCalculadoraPuDTHttpPostIn" />
+      <wsdl:output message="tns:ReturnCalculadoraPuDTHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SmartBrainSoap" type="tns:SmartBrainSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Auth">
+      <soap:operation soapAction="http://tempuri.org/Auth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCalculadoraPuDS">
+      <soap:operation soapAction="http://tempuri.org/ReturnCalculadoraPuDS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCalculadoraPuDT">
+      <soap:operation soapAction="http://tempuri.org/ReturnCalculadoraPuDT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SmartBrainSoap12" type="tns:SmartBrainSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Auth">
+      <soap12:operation soapAction="http://tempuri.org/Auth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCalculadoraPuDS">
+      <soap12:operation soapAction="http://tempuri.org/ReturnCalculadoraPuDS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCalculadoraPuDT">
+      <soap12:operation soapAction="http://tempuri.org/ReturnCalculadoraPuDT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SmartBrainHttpGet" type="tns:SmartBrainHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Auth">
+      <http:operation location="/Auth" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCalculadoraPuDS">
+      <http:operation location="/ReturnCalculadoraPuDS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCalculadoraPuDT">
+      <http:operation location="/ReturnCalculadoraPuDT" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SmartBrainHttpPost" type="tns:SmartBrainHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Auth">
+      <http:operation location="/Auth" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCalculadoraPuDS">
+      <http:operation location="/ReturnCalculadoraPuDS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCalculadoraPuDT">
+      <http:operation location="/ReturnCalculadoraPuDT" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SmartBrain">
+    <wsdl:port name="SmartBrainSoap" binding="tns:SmartBrainSoap">
+      <soap:address location="http://52.67.104.125:5063/SmartBrain.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SmartBrainSoap12" binding="tns:SmartBrainSoap12">
+      <soap12:address location="http://52.67.104.125:5063/SmartBrain.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SmartBrainHttpGet" binding="tns:SmartBrainHttpGet">
+      <http:address location="http://52.67.104.125:5063/SmartBrain.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SmartBrainHttpPost" binding="tns:SmartBrainHttpPost">
+      <http:address location="http://52.67.104.125:5063/SmartBrain.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

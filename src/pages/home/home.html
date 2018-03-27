@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <ion-segment [(ngModel)]="view.tipoCalculo">
+      <ion-segment-button value="taxa">
+        Taxa
+      </ion-segment-button>
+      <ion-segment-button value="preco">
+        Preço
+      </ion-segment-button>
+    </ion-segment>
+
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+  <ion-list no-lines padding-top [ngSwitch]="view.tipoCalculo">
+
+    <ion-item>
+      <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" placeholder="Data de Compra" [(ngModel)]="view.dataReferencia"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-input placeholder="Emissora" [value]="view.descricaoEmissora" (click)="showModalEmissoras()"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input placeholder="Ativo" [(ngModel)]="view.casoAtivo"></ion-input>
+    </ion-item>
+
+    <ion-item *ngSwitchCase="'taxa'">
+      <ion-input type="number" placeholder="Preço de Compra" [(ngModel)]="view.precoCompra"></ion-input>
+    </ion-item>
+
+    <ion-item *ngSwitchCase="'preco'">
+      <ion-input type="number" placeholder="Taxa de Compra" [(ngModel)]="view.taxaCompra"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div [ngSwitch]="view.tipoCalculo">
+    <button *ngSwitchCase="'taxa'" ion-button block (click)="calcularTaxa()">Calcular Taxa</button>
+    <button *ngSwitchCase="'preco'" ion-button block (click)="calcularTaxa()">Calcular Preço</button>
+  </div>
+
+</ion-content>

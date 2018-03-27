@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Selecione uma emissora
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="ligth" showWhen="ios">Cancelar</span>
+        <ion-icon color="ligth" name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-searchbar padding color="primary" placeholder="Procurar"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>  
+  <ion-list>
+    <button ion-item *ngFor="let emissora of emissorasData" (click)="itemSelected(emissora)">
+      {{ emissora.nome }}
+    </button>  
+  </ion-list>
+</ion-content>
